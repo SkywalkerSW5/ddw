@@ -1,8 +1,43 @@
 #!/bin/bash
-
-echo "DDW 1.0"
-echo
-echo "Please enter ISO:" && read iso
-echo
-echo "Please enter device name:" && read device
-sudo dd if=$iso of=$device
+clear
+echo "DDW 1.0.2"
+usage() {
+	echo 
+	echo "Usage:"
+	echo
+	echo "		ddw r: Runs the regular DDW script;"
+	echo "		ddw ui: Runs the script but with a UI prgress bar;"
+	echo "		ddw sd: Runs the script but writes the ISO to /dev/mmcblk0;"
+}
+r() {
+	clear
+	echo "Enter the filename of the ISO:" && read iso
+	echo "Enter the filename of the device:" && read device
+	sudo dd if=$iso of=$device status=progress
+}
+ui() {
+	clear
+FILE2=/usr/bin/dialog
+if [ -f "$FILE2" ]; then
+break
+fi
+if [ -f "$FILE" ]; then
+   break
+else 
+    echo "We need to install PV" && sudo apt install pv
+fi
+ echo "Enter the filename of the ISO:" && read iso
+	echo "Enter the filename of the device:" && read device
+	(pv -n $device | sudo dd if=$iso of=$device ) 2>&1 | dialog --gauge "Running DDW, please wait..." 10 70 0
+}
+for a in $@; do
+    case $a in
+        "") echo;;
+        "r") r;;
+        "ui") ui;;
+        "usage") usage;;
+        "help") usage;;
+        *)
+            
+    esac
+done
