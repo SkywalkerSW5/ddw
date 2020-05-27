@@ -3,5 +3,5 @@
 
 
 ### How to install:
-To install;
-```sudo wget https://raw.githubusercontent.com/SkywalkerSW5/ddw/master/ddw -o /usr/bin/ && sudo chmod +x /usr/bin/ddw```
+#### To install;
+```sudo wget https://raw.githubusercontent.com/SkywalkerSW5/ddw/master/ddw -P /usr/bin/ && sudo chmod +x /usr/bin/ddw```
