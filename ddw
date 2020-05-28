@@ -1,6 +1,7 @@
 #!/bin/bash
 clear
 echo "DDW 2.0.0"
+source ddwrc
 usage() {
 	echo 
 	echo "Usage:"
