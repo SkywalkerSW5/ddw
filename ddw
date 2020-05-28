@@ -7,7 +7,24 @@ usage() {
 	echo
 	echo "		ddw setup: Setup the DDW script. Run this first;"
 	echo "		ddw r: Runs the regular DDW script;"
+	echo " 		ddw mount: Mounts selected ISO;"
 	echo "	[BETA]	ddw ui: Runs the script but with a UI prgress bar;"
+	echo
+	echo "ISO Retrieval [BETA]:"
+	echo
+	echo "ISOs available:"
+	echo
+	echo "ddw rbl (Raspbian Buster Lite)"
+	echo "ddw rb  (Raspbian Buster)"
+	echo "ddw rbf (Raspbian Buster Full)"
+}
+mount() {
+	echo "Enter the filename of the ISO"
+	read iso
+	cd 
+	sudo mkdir iso-mount
+	sudo mount ./iso-mount $iso
+	cd -
 }
 r() {
 	clear
@@ -47,6 +64,7 @@ for a in $@; do
 	"setup") setup;;
         "usage") usage;;
         "help") usage;;
+	"mount") mount;;
         *)
             
     esac
