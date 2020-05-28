@@ -1,13 +1,13 @@
 #!/bin/bash
 clear
-echo "DDW 1.0.2"
+echo "DDW 2.0.0"
 usage() {
 	echo 
 	echo "Usage:"
 	echo
+	echo "		ddw setup: Setup the DDW script. Run this first;"
 	echo "		ddw r: Runs the regular DDW script;"
-	echo "		ddw ui: Runs the script but with a UI prgress bar;"
-	echo "		ddw sd: Runs the script but writes the ISO to /dev/mmcblk0;"
+	echo "	[BETA]	ddw ui: Runs the script but with a UI prgress bar;"
 }
 r() {
 	clear
@@ -30,11 +30,21 @@ fi
 	echo "Enter the filename of the device:" && read device
 	(pv -n $device | sudo dd if=$iso of=$device ) 2>&1 | dialog --gauge "Running DDW, please wait..." 10 70 0
 }
+setup() {
+	echo "What is your username?"
+	read user
+	v1="USERNAME1="
+	USERNAME=$v1=$user
+	echo $USERNAME >> ddwrc
+	
+}
 for a in $@; do
     case $a in
         "") echo;;
         "r") r;;
         "ui") ui;;
+	"ls") ls;;
+	"setup") setup;;
         "usage") usage;;
         "help") usage;;
         *)
