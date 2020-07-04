@@ -6,19 +6,24 @@ usage() {
 	echo 
 	echo "Usage:"
 	echo
+	echo "ISO Options:"
+	echo
 	echo "		ddw setup: Setup the DDW script. Run this first;"
 	echo "		ddw r: Runs the regular DDW script;"
 	echo " 		ddw mount: Mounts selected ISO;"
-	echo "	[BETA]	ddw ui: Runs the script but with a UI prgress bar;"
 	echo
-	echo "ISO Retrieval [BETA]:"
+	echo "Networking Options:"
 	echo
-	echo "ISOs available:"
-	echo
-	echo "ddw rbl (Raspbian Buster Lite)"
-	echo "ddw rb  (Raspbian Buster)"
-	echo "ddw rbf (Raspbian Buster Full)"
+	echo "		ddw port: Opens selected port;"
+
 }
+port() {
+	echo "Enter the number of the port you wanna open"
+	read port
+	echo "Opening port " $port
+	echo "Port opened"
+	netcat -l -k $port
+	}
 mount() {
 	echo "Enter the filename of the ISO"
 	read iso
@@ -83,6 +88,7 @@ for a in $@; do
         "usage") usage;;
         "help") usage;;
 	"mount") mount;;
+	"port") port;;
         *)
             
     esac
