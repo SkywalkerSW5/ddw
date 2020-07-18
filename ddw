@@ -68,15 +68,7 @@ setup() {
 	echo "		ddw setup: Setup the DDW script. Run this first;"
 	echo "		ddw r: Runs the regular DDW script;"
 	echo " 		ddw mount: Mounts selected ISO;"
-	echo "	[BETA]	ddw ui: Runs the script but with a UI prgress bar;"
-	echo
-	echo "ISO Retrieval [BETA]:"
-	echo
-	echo "ISOs available:"
-	echo
-	echo "ddw rbl (Raspbian Buster Lite)"
-	echo "ddw rb  (Raspbian Buster)"
-	echo "ddw rbf (Raspbian Buster Full)"; fi
+	echo "	[BETA]	ddw ui: Runs the script but with a UI prgress bar;"; fi
 
 for a in $@; do
     case $a in
