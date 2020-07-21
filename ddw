@@ -1,20 +1,14 @@
 #!/bin/bash
 clear
-echo "DDW 2.0.0"
+echo "ddw 2.5"
 source ddwrc
 usage() {
 	echo 
 	echo "Usage:"
 	echo
-	echo "ISO Options:"
+	echo "ddw iso: Writes selected iso to selected drive"
 	echo
-	echo "		ddw setup: Setup the DDW script. Run this first;"
-	echo "		ddw r: Runs the regular DDW script;"
-	echo " 		ddw mount: Mounts selected ISO;"
-	echo
-	echo "Networking Options:"
-	echo
-	echo "		ddw port: Opens selected port;"
+	echo "ddw port: Opens selected port;"
 
 }
 port() {
@@ -32,54 +26,23 @@ mount() {
 	sudo mount ./iso-mount $iso
 	cd -
 }
-r() {
+iso() {
 	clear
 	echo "Enter the filename of the ISO:" && read iso
 	echo "Enter the filename of the device:" && read device
 	sudo dd if=$iso of=$device status=progress
 }
-ui() {
-	clear
-FILE2=/usr/bin/dialog
-if [ -f "$FILE2" ]; then
-break
-fi
-if [ -f "$FILE" ]; then
-   break
-else 
-    echo "We need to install PV" && sudo apt install pv
-fi
- echo "Enter the filename of the ISO:" && read iso
-	echo "Enter the filename of the device:" && read device
-	(pv -n $device | sudo dd if=$iso of=$device ) 2>&1 | dialog --gauge "Running DDW, please wait..." 10 70 0
-}
-setup() {
-	echo "What is your username?"
-	read user
-	v1="USERNAME1="
-	USERNAME=$v1=$user
-	echo $USERNAME >> ddwrc
-	
-}
+
  if [ -z "$*" ]; then 
- echo 
-	echo "Usage:"
-	echo
-	echo "		ddw setup: Setup the DDW script. Run this first;"
-	echo "		ddw r: Runs the regular DDW script;"
-	echo " 		ddw mount: Mounts selected ISO;"
-	echo "	[BETA]	ddw ui: Runs the script but with a UI prgress bar;"; fi
+	echo "Run ddw usage for usage info"; fi
 
 for a in $@; do
     case $a in
         "") echo;;
-        "r") r;;
-        "ui") ui;;
-	"ls") ls;;
-	"setup") setup;;
+        "iso") iso;;
         "usage") usage;;
         "help") usage;;
-	"mount") mount;;
+
 	"port") port;;
         *)
             
