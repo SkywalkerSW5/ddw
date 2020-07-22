@@ -47,7 +47,7 @@ for a in $@; do
         "iso") iso;;
         "usage") usage;;
         "help") usage;;
-
+	"update") update;;
 	"port") port;;
         *)
             
