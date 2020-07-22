@@ -1,7 +1,12 @@
 #!/bin/bash
 clear
 echo "ddw 2.5"
-source ddwrc
+update() {
+	echo "Updateing ddw"
+	sudo wget https://raw.githubusercontent.com/SkywalkerSW5/ddw/master/ddw 
+	sudo chmod +x ./ddw
+
+}
 usage() {
 	echo 
 	echo "Usage:"
