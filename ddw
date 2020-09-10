@@ -1,6 +1,6 @@
 #!/bin/bash
 clear
-echo "ddw 2.5"
+echo "ddw 2.7"
 update() {
 	rm ./ddw
 	echo "Updateing ddw"
@@ -12,10 +12,11 @@ usage() {
 	echo 
 	echo "Usage:"
 	echo
-	echo "ddw iso: Writes selected iso to selected drive"
+	echo "ddw iso: Writes selected iso to selected drive;"
 	echo
 	echo "ddw port: Opens selected port;"
-
+	echo
+	echo "ddw mount: Mounts the selected iso;"
 }
 port() {
 	echo "Enter the number of the port you wanna open"
@@ -28,16 +29,35 @@ mount() {
 	echo "Enter the filename of the ISO"
 	read iso
 	cd 
-	sudo mkdir iso-mount
-	sudo mount ./iso-mount $iso
+	sudo mkdir iso
+	sudo mount $iso ./iso
 	cd -
 }
 iso() {
 	clear
+	ls *.img *.iso *.qcow *.vhd *.bin 
 	echo "Enter the filename of the ISO:" && read iso
+	clear
+	lsblk
 	echo "Enter the filename of the device:" && read device
-	sudo dd if=$iso of=$device status=progress
+	sudo dd if=$iso | pv | sudo dd of=$device
 }
+	lsiso() {
+			ls *.img *.iso *.qcow *.vhd *.bin 
+}
+	format() {
+		clear
+		echo "Choose one of the filesystems: fat, ext4, ,ext3 , ntfs, btrfs"
+		read fs
+		lsblk
+		echo "Select the device you want to format:"
+		read format-device
+		sudo mkfs.$fs $format-device
+		echo "Finished"		
+}
+
+
+
 
  if [ -z "$*" ]; then 
 	echo "Run ddw usage for usage info"; fi
@@ -46,11 +66,14 @@ for a in $@; do
     case $a in
         "") echo;;
         "iso") iso;;
+	"mount") mount;;
         "usage") usage;;
         "help") usage;;
 	"update") update;;
 	"port") port;;
+	"lsiso") lsiso;;
         *)
+
             
     esac
 done
