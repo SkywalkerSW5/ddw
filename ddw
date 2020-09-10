@@ -35,7 +35,7 @@ mount() {
 }
 iso() {
 	clear
-	ls *.img *.iso *.qcow *.vhd *.bin 
+	ls *.img *.iso *.qcow *.vhd *.bin 2> /dev/null
 	echo "Enter the filename of the ISO:" && read iso
 	clear
 	lsblk
@@ -43,7 +43,7 @@ iso() {
 	sudo dd if=$iso | pv | sudo dd of=$device
 }
 	lsiso() {
-			ls *.img *.iso *.qcow *.vhd *.bin 
+			ls *.img *.iso *.qcow *.vhd *.bin 2> /dev/null
 }
 	format() {
 		clear
