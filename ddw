@@ -13,10 +13,10 @@ usage() {
 	echo "Usage:"
 	echo
 	echo "ddw iso: Writes selected iso to selected drive;"
-	echo
 	echo "ddw port: Opens selected port;"
-	echo
 	echo "ddw mount: Mounts the selected iso;"
+	echo "ddw lsiso: Lists ISOs in dir;"
+
 }
 port() {
 	echo "Enter the number of the port you wanna open"
@@ -35,6 +35,7 @@ mount() {
 }
 iso() {
 	clear
+	echo "Available ISOs in current directory:"
 	ls *.img *.iso *.qcow *.vhd *.bin 2> /dev/null
 	echo "Enter the filename of the ISO:" && read iso
 	clear
