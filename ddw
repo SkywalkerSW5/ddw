@@ -1,11 +1,10 @@
 #!/bin/bash
-clear
-echo "ddw 2.8"
+echo "ddw 2.8.1"
 update() {
-	rm ./ddw
+	rm /usr/bin/ddw
 	echo "Updateing ddw"
-	sudo wget https://raw.githubusercontent.com/SkywalkerSW5/ddw/master/ddw 
-	sudo chmod +x ./ddw
+	sudo wget https://raw.githubusercontent.com/SkywalkerSW5/ddw/master/ddw -P /usr/bin
+	sudo chmod +x /usr/bin/ddw
 
 }
 usage() {
