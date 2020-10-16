@@ -9,10 +9,11 @@
 #### Quick Start;
 The primary usage for ddw is to write ISOs to a drive. To begin this process type this;
 ```ddw iso```
-ddw has sudo built in. It will then list all the ISO files in the current directory. Enter the one you want;
+Ddw has sudo built in. It will then list all the ISO files in the current directory. Enter the one you want;
 ```archlinux.iso  voidlinux.iso
 Enter the ISO you want to use:
 archlinux.iso ```
+```
 Then, it will run *lsblk*, and show you the drives to put it on;
 ```NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
 sda      8:0    0 931.5G  0 disk 
