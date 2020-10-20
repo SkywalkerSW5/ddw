@@ -4,6 +4,7 @@
 
 ### How to install:
 #### To install;
+ddw requires *wget*, and *pv* to be installed.
 ```sudo wget https://raw.githubusercontent.com/SkywalkerSW5/ddw/master/ddw -P /usr/bin/ && sudo chmod +x /usr/bin/ddw```
 ### Usage;
 #### Quick Start;
