@@ -1,5 +1,9 @@
 #!/bin/bash
 echo "ddw 3.0"
+# This checks if ddw is on current version
+wget -q https://github.com/SkywalkerSW5/ddw/raw/master/version -P /tmp 2> /dev/null
+source /tmp/version
+echo "The latest version is $latest-version . Run ddw update to update."
 update() {
 	rm /usr/bin/ddw
 	echo "Updateing ddw"
@@ -45,22 +49,12 @@ iso() {
 
             if [ "$device" = "/dev/sda" ]; then
                 echo "ddw will NOT write to /dev/sda"
-	exit
+				exit
             else
-                break         2> /dev/null
+                break  2> /dev/null    # break gives me w wierd message but still works so idk
             fi
 
-
-
-
-
-
-
-
-
-
-
-	echo "oops"
+	sudo dd if=$iso | pv | sudo dd of=$device
 }
 	lsiso() {
 			ls *.img *.iso *.qcow *.vhd *.bin 2> /dev/null

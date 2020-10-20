@@ -34,3 +34,5 @@ Enter the filename of the device:
 /dev/sdd
 ```
 After that, it will burn the ISO to the drive
+### Compiling
+ddw is written in shell, so compiling isn't required to run. The release version is, however. To compile from source, download 
