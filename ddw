@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "ddw 2.8.1"
+echo "ddw 3.0"
 update() {
 	rm /usr/bin/ddw
 	echo "Updateing ddw"
@@ -40,6 +40,16 @@ iso() {
 	clear
 	lsblk
 	echo "Enter the filename of the device:" && read device
+	
+	# This prevents the code from writing on /dev/sda or any of its paritions
+	
+	if [ $device = /dev/sda]
+		then 
+		echo "ddw WILL NOT write to /dev/sda"
+		exit
+		fi	
+
+
 	sudo dd if=$iso | pv | sudo dd of=$device
 }
 	lsiso() {
