@@ -1,5 +1,9 @@
 #!/bin/bash
 echo "ddw 3.0"
+# This checks if ddw is on current version
+wget gggg 2> /dev/null
+source /tmp/latest-version
+version();;
 update() {
 	rm /usr/bin/ddw
 	echo "Updateing ddw"
