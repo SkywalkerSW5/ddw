@@ -3,7 +3,7 @@ echo "ddw 3.0"
 # This checks if ddw is on current version
 wget -q https://github.com/SkywalkerSW5/ddw/raw/master/version -P /tmp 2> /dev/null
 source /tmp/version
-echo "The latest version is $latest-version . Run ddw update to update."
+echo "The latest version is $lversion . Run ddw update to update."
 update() {
 	rm /usr/bin/ddw
 	echo "Updateing ddw"
