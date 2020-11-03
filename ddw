@@ -1,4 +1,4 @@
-#!/bin/bash
+!/bin/bash
 echo "ddw 3.0"
 update() {
 	sudo rm /usr/bin/ddw
@@ -12,7 +12,6 @@ usage() {
 	echo "Usage:"
 	echo
 	echo "ddw iso: Writes selected iso to selected drive;"
-	echo "ddw mount: Mounts the selected iso;"
 	echo "ddw lsiso: Lists ISOs in dir;"
 
 }
@@ -23,14 +22,6 @@ port() {
 	echo "Port opened"
 	netcat -l -k $port
 	}
-mount() {
-	echo "Enter the filename of the ISO"
-	read iso
-	cd 
-	sudo mkdir iso
-	sudo mount $iso ./iso
-	cd -
-}
 iso() {
 	clear
 	echo "Available ISOs in current directory:"
@@ -55,18 +46,6 @@ iso() {
 	lsiso() {
 			ls *.img *.iso *.qcow *.vhd *.bin 2> /dev/null
 }
-	format() {
-		clear
-		echo "Choose one of the filesystems: fat, ext4, ,ext3 , ntfs, btrfs"
-		read fs
-		lsblk
-		echo "Select the device you want to format:"
-		read format-device
-		sudo mkfs.$fs $format-device
-		echo "Finished"		
-}
-
-
 
 
  if [ -z "$*" ]; then 
