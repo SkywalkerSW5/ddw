@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "ddw 3.0"
 update() {
-	rm /usr/bin/ddw
+	sudo rm /usr/bin/ddw
 	echo "Updateing ddw"
 	sudo wget https://raw.githubusercontent.com/SkywalkerSW5/ddw/master/ddw -P /usr/bin
 	sudo chmod +x /usr/bin/ddw
