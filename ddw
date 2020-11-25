@@ -1,5 +1,6 @@
-!/bin/bash
-echo "ddw 3.0"
+# removed /bin/bash for fish shell compatibility/ease of use
+echo "ddw 3.2"
+echo "Log is stored in ~/.ddw.log"
 update() {
 	sudo rm /usr/bin/ddw
 	echo "Updateing ddw"
@@ -25,7 +26,7 @@ port() {
 iso() {
 	clear
 	echo "Available ISOs in current directory:"
-	ls *.img *.iso *.qcow *.vhd *.bin 2> /dev/null
+	ls *.img *.iso *.qcow *.vhd *.bin 2> ~/.ddw.log
 	echo "Enter the filename of the ISO:" && read iso
 	clear
 	lsblk
@@ -38,13 +39,13 @@ iso() {
                 echo "ddw will NOT write to /dev/sda"
 				exit
             else
-                break  2> /dev/null    # break gives me w wierd message but still works so idk
+                break  2> ~/.ddw.log    # break gives me w wierd message but still works so idk
             fi
 
-	sudo dd if=$iso | pv | sudo dd of=$device
+	sudo dd if=$iso | pv | sudo dd of=$device 2> ~/.ddw.log
 }
 	lsiso() {
-			ls *.img *.iso *.qcow *.vhd *.bin 2> /dev/null
+			ls *.img *.iso *.qcow *.vhd *.bin 2> ~/.ddw.log
 }
 
 
