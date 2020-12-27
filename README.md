@@ -1,7 +1,7 @@
 # ddw
 ## A wrapper for DD that writes ISOs to a drive
 
-
+Note: This is the old version, a rewritten version is bundled with teaOS
 ### How to install:
 #### To install;
 ddw requires *wget*, and *pv* to be installed.
