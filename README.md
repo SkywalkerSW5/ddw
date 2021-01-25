@@ -10,7 +10,7 @@ ddw requires *wget*, and *pv* to be installed.
 #### Quick Start;
 The primary usage for ddw is to write ISOs to a drive. To begin this process type this;
 ```ddw iso```
-Ddw has sudo built in. It will then list all the ISO files in the current directory. Enter the one you want;
+Ddw has sudo built in. It will then list all the ISO files in the current directory. Enter the one you want:
 ```archlinux.iso  voidlinux.iso
 Enter the ISO you want to use:
 archlinux.iso ```
@@ -25,7 +25,6 @@ sda      8:0    0 931.5G  0 disk
 ├─sda5   8:5    0   512M  0 part 
 ├─sda6   8:6    0    50G  0 part 
 └─sda7   8:7    0   581G  0 part /
-sdc      8:32   0 149.1G  0 disk /run/media/skywalkersw5/2a2c068c-37ea-44d2-adce-b9cc1ea9a55c
 sdd      8:48   1  57.8G  0 disk 
 ├─sdd1   8:49   1   800K  0 part 
 └─sdd2   8:50   1    15K  0 part 

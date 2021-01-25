@@ -1,13 +1,6 @@
-# removed /bin/bash for fish shell compatibility/ease of use
-echo "ddw 3.2"
+#!/bin/sh
+echo "ddw 3.5"
 echo "Log is stored in ~/.ddw.log"
-update() {
-	sudo rm /usr/bin/ddw
-	echo "Updateing ddw"
-	sudo wget https://raw.githubusercontent.com/SkywalkerSW5/ddw/master/ddw -P /usr/bin
-	sudo chmod +x /usr/bin/ddw
-
-}
 usage() {
 	echo 
 	echo "Usage:"
@@ -16,13 +9,6 @@ usage() {
 	echo "ddw lsiso: Lists ISOs in dir;"
 
 }
-port() {
-	echo "Enter the number of the port you wanna open"
-	read port
-	echo "Opening port " $port
-	echo "Port opened"
-	netcat -l -k $port
-	}
 iso() {
 	clear
 	echo "Available ISOs in current directory:"
@@ -56,11 +42,8 @@ for a in $@; do
     case $a in
         "") echo;;
         "iso") iso;;
-	"mount") mount;;
         "usage") usage;;
         "help") usage;;
-	"update") update;;
-	"port") port;;
 	"lsiso") lsiso;;
         *)
 
